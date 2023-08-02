@@ -5,8 +5,10 @@ pipeline {
     stages {
         stage('Start Build') {
             steps {
-
-                build job: 'BuildCrwdApp'
+                script {
+                    def version = readFile('VERSION').trim()
+                    build job: 'BuildCrwdApp', parameters: [string(name: 'TAG', value: version)]
+                    }
             }
         }
         stage('Deploy') {
