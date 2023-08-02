@@ -19,8 +19,8 @@ pipeline {
         stage('Increment Version') {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'GITHUB_SSH_KEY', keyFileVariable: 'GITHUB_SSH_KEY')]) {
-                    sh 'eval `ssh-agent -s`\n' +
-                            '  ssh-add ${GITHUB_SSH_KEY}'
+                    sh 'echo ${GITHUB_SSH_KEY} > ~/.ssh/id_rsa'
+                    sh 'chmod 600 ~/.ssh/id_rsa'
                 }
                 // read VERSION file and increment the version
                 script {
