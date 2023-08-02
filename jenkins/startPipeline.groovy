@@ -18,6 +18,10 @@ pipeline {
 //        }
         stage('Increment Version') {
             steps {
+                withCredentials([file(credentialsId: 'GITHUB_SSH_KEY', variable: 'GITHUB_SSH_KEY')]) {
+                    sh 'eval `ssh-agent -s`\n' +
+                            '  ssh-add ${GITHUB_SSH_KEY}'
+                }
                 // read VERSION file and increment the version
                 script {
                     def version = readFile('VERSION').trim()
