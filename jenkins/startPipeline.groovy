@@ -29,7 +29,7 @@ pipeline {
                     def newVersion = "${major}.${minor}.${patch}"
                     writeFile file: 'VERSION', text: newVersion
                     echo "New version is ${newVersion}"
-                    sh 'git push origin main'
+                    sh 'git add .; g commit -m "version increased"; push origin main'
                 }
             }
         }
