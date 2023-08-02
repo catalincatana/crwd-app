@@ -9,4 +9,4 @@ RUN pip install -r requirements.txt
 # Expose the Docker container for the application to run on port 5000
 EXPOSE 5000
 # The command required to run the Dockerized application
-CMD ["python", "/app/app.py", "--host=0.0.0.0"]
+CMD ["python", "/app/app.py"]
