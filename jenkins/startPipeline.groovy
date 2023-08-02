@@ -18,7 +18,7 @@ pipeline {
 //        }
         stage('Increment Version') {
             steps {
-                withCredentials([sshUserPrivateKey(credentialsId: 'GITHUB_SSH_KEY', variable: 'GITHUB_SSH_KEY')]) {
+                withCredentials([sshUserPrivateKey(credentialsId: 'GITHUB_SSH_KEY', keyFileVariable: 'GITHUB_SSH_KEY')]) {
                     sh 'eval `ssh-agent -s`\n' +
                             '  ssh-add ${GITHUB_SSH_KEY}'
                 }
