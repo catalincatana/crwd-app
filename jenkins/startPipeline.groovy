@@ -29,9 +29,10 @@ pipeline {
                     def newVersion = "${major}.${minor}.${patch}"
                     writeFile file: 'VERSION', text: newVersion
                     echo "New version is ${newVersion}"
-                    sh 'git config --global user.email "Admin@me.com"\n' +
-                            '  git config --global user.name "Admine Me"'
-                    sh 'git add .; git commit -m "version increased"; git push origin main'
+                    ls -la
+//                    sh 'git config --global user.email "Admin@me.com"\n' +
+//                            '  git config --global user.name "Admine Me"'
+//                    sh 'git add .; git commit -m "version increased"; git push origin main'
                 }
             }
         }
