@@ -8,5 +8,10 @@ pipeline {
                 build job: 'BuildCrwdApp'
             }
         }
+        stage('Deploy') {
+            steps {
+                build job: 'DeployCrwdApp'
+            }
+        }
     }
 }
