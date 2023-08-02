@@ -6,6 +6,8 @@ WORKDIR /app
 COPY . .
 # Install all the dependencies required to run the Flask application
 RUN pip install -r requirements.txt
+# Run Unit Tests
+RUN python -m pytest
 # Expose the Docker container for the application to run on port 5000
 EXPOSE 5000
 # The command required to run the Dockerized application
