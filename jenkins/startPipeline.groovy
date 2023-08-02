@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Start Build') {
             steps {
-                sh 'echo "Hello World!"'
+                build job: 'BuildCrwdApp'
             }
         }
     }
