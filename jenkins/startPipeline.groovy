@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                     def version = readFile('VERSION').trim()
-                    build job: 'DeployCrwdApp', parameters: [string(name: 'VERSION', value: version)]
+                    build job: 'DeployCrwdApp', parameters: [string(name: 'Version', value: version)]
                 }
             }
         }
