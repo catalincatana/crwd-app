@@ -8,7 +8,7 @@ COPY . .
 RUN pip install -r requirements.txt
 # Run Unit Tests
 RUN python -m pytest
-# Expose the Docker container for the application to run on port 5000
-EXPOSE 5000
+# Expose the Docker container for the application to run on port 5001
+EXPOSE 5001
 # The command required to run the Dockerized application
 CMD ["python", "/app/app.py"]
